@@ -46,5 +46,8 @@ module App
 
     # Cookieを処理するmeddleware
     config.middleware.use ActionDispatch::Cookies
+
+    # Cookieのsamesite属性変更
+    config.action_dispatch.cookies_same_site_protection = ENV['COOKIES_SAME_SITE'] if Raisl.env.production?
   end
 end
