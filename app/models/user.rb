@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # Token生成モジュール
+  include TokenGenerateService
+
   has_secure_password
 
   validates :name, presence: true, length: { maximum: 30, allow_blank: true }
