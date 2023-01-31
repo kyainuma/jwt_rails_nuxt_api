@@ -7,4 +7,16 @@ class User < ApplicationRecord
                        length: { minimum: 8, allow_blank: true },
                        format: { with: VALID_PASSWORD_REGEX, allow_blank: true, message: :invalid_password },
                        allow_nil: true
+
+  # リフレッシュトークンのJWT IDを保存
+  def remember!(jti)
+    update!(refresh_jti: jti)
+  end
+
+  # リフレッシュトークンのJWT IDを削除
+  def forget!
+    update!(refresh_jti: nil)
+  end
+
+
 end
