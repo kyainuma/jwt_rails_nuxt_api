@@ -27,6 +27,7 @@ gem 'rack-cors'
 
 gem 'hirb', '~> 0.7.3'
 gem 'hirb-unicode-steakknife', '~> 0.0.9'
+gem 'jwt', '~> 2.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
