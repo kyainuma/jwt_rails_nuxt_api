@@ -29,7 +29,7 @@ class Api::V1::AuthTokenController < ApplicationController
 
   # ログアウト
   def destroy
-    delete_session if session_user.forget
+    delete_session if session_user.forget!
     cookies[session_key].nil? ?
       head(:ok) : response_500("Could not delete session")
   end
@@ -38,7 +38,7 @@ class Api::V1::AuthTokenController < ApplicationController
 
   # params[:email]からアクティブなユーザーを返す
   def login_user
-    @_login_user ||= User.find_by_activated(auth_params[:email])
+    @_login_user ||= User.find_by!(activated: true, email: auth_params[:email])
   end
 
   # ログインユーザーが居ない、もしくはpasswordが一致しない場合404を返す
