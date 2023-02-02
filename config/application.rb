@@ -48,6 +48,6 @@ module App
     config.middleware.use ActionDispatch::Cookies
 
     # Cookieのsamesite属性変更
-    config.action_dispatch.cookies_same_site_protection = ENV['COOKIES_SAME_SITE'] if Raisl.env.production?
+    config.action_dispatch.cookies_same_site_protection = ENV['COOKIES_SAME_SITE'] if Rails.env.production?
   end
 end
